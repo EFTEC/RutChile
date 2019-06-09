@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>RutChile</id>
+	<title>Rut Chile</title
+    <version>1.0.0</version>
+    <authors>Jorge Castro Castillo</authors>
+    <owners>Jorge Castro Castillo</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>https://www.eftec.cl/</projectUrl>
+    <iconUrl>https://avatars3.githubusercontent.com/u/19829219?s=200&amp;v=4</iconUrl>
+    <description>Librería para validar y generar RUT de Chile.
+El RUT (tambien conocido como RUN) es el numero identificador (National Id) de cada ciudadano chileno y consiste en lo siguiente. 
+Una serie de números y un digito verificador, el cual puede ser un numero del 0 al 9 o la letra K
+Ejemplo:
+123456789-K</description>
+    <releaseNotes>Primera Version</releaseNotes>
+    <copyright>Copyright Jorge Castro Castillo EFTEC Chile</copyright>
+    <tags>Rut Chile Digito Verificador</tags>
+    <repository type="Library" url="https://github.com/EFTEC/RutChile" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+	 <summary>Libreria para validar y generar RUT chilenos</summary>
+  </metadata>
+</package>

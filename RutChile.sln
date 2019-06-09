@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RutChile", "RutChile\RutChile.csproj", "{AAC31FD2-C492-4140-BA4F-14A5EB1FF1DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RutChile", "RutChile\RutChile.csproj", "{AAC31FD2-C492-4140-BA4F-14A5EB1FF1DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RutChileTest", "RutChileTest\RutChileTest.csproj", "{A9980A39-305D-46E6-85E6-C9348ED9A758}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "package", "package", "{D1642CF7-8CDD-431B-86F7-9D08335267BF}"
+	ProjectSection(SolutionItems) = preProject
+		RutChile.nuspec = RutChile.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8112030F-21A4-405A-8CE7-2EF5B966D7F1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

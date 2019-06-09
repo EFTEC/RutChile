@@ -9,7 +9,7 @@ namespace EFTEC
     {
         /// <summary>
         /// Valida un rut y devuelve true si el rut es valido. En otro caso, devuelve False.
-        /// El rut puede estar en mayuscula, minuscula y contener espacio.
+        /// El rut puede estar en mayuscula, minuscula y contener puntos.
         /// </summary>
         /// <param name="rut">Ejemplo: 123456789-0</param>
         /// <returns></returns>
