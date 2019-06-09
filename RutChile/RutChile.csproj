@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>EFTEC</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>EFTEC Chile</Company>
+    <Authors>Jorge Castro Castillo</Authors>
+    <PackageProjectUrl>https://www.eftec.cl</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/EFTEC/RutChile</RepositoryUrl>
+    <PackageTags>Rut Chile Digito Verificador</PackageTags>
+    <Description>Librería para validar y generar RUT de Chile.
+El RUT es el numero identificador de cada ciudadano chileno y consiste en lo siguiente. 
+Una serie de números y un digito verificador, el cual puede ser un numero del 0 al 9 o la letra K
+Ejemplo:
+123456789-K
+</Description>
+    <PackageReleaseNotes>Primera Version</PackageReleaseNotes>
+    <RepositoryType>Library</RepositoryType>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/19829219?s=200&amp;v=4</PackageIconUrl>
+    <Copyright>Copyright Jorge Castro Castillo EFTEC Chile</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
