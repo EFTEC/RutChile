@@ -16,11 +16,28 @@ var valido=RutChile.ValidarRut(rut)
 Valida un rut y devuelve true si el rut es valido. En otro caso, devuelve False.
 El rut puede estar en mayuscula, minuscula y contener puntos.
 
+Ejemplo:
+
+```c#
+// agregar using EFTEC;
+bool valido=RutChile.ValidarRut("123456789-0");
+```
+
 ## string ObtenerDV(string rut)
 
 Obtiene el digito verificador de un rut incompleto.
 En caso de error, devuelve un "?"
 
+```c#
+// agregar using EFTEC;
+string dv=RutChile.ValidarRut("123456789");
+```
+
 ## string GeneraRut(int desde=1,int hasta=99999999) 
 
 Genera un rut al azar con digito verificador.
+
+```c#
+// agregar using EFTEC;
+string rut=RutChile.GeneraRut(1,99999999); // devuelve un rut ejemplo: 123456789-0
+```

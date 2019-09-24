@@ -15,11 +15,13 @@ Una serie de números y un digito verificador, el cual puede ser un numero del 0
 Ejemplo:
 123456789-K
 </Description>
-    <PackageReleaseNotes>Primera Version</PackageReleaseNotes>
+    <PackageReleaseNotes>Segunda Version</PackageReleaseNotes>
     <RepositoryType>Library</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/19829219?s=200&amp;v=4</PackageIconUrl>
     <Copyright>Copyright Jorge Castro Castillo EFTEC Chile</Copyright>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
