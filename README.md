@@ -8,7 +8,11 @@ Uso.
 
 ```c#
 // agregar using EFTEC;
-var valido=RutChile.ValidarRut(rut)
+
+var valido=RutChile.ValidarRut(rut) // devuelve true si el rut es valido.
+var dv=RutChile.ObtenerDV(rutSinDV) // obtiene el digito verificador de un rut
+var rut=RutChile.GeneraRut();
+
 ```
 
 ## bool ValidarRut(string rut)
@@ -27,6 +31,8 @@ bool valido=RutChile.ValidarRut("123456789-0");
 
 Obtiene el digito verificador de un rut incompleto.
 En caso de error, devuelve un "?"
+El rut puede contener espacios, puntos y estar en mayuscula y minuscula pero no puede contener un digito verificador.
+
 
 ```c#
 // agregar using EFTEC;
@@ -36,6 +42,7 @@ string dv=RutChile.ValidarRut("123456789");
 ## string GeneraRut(int desde=1,int hasta=99999999) 
 
 Genera un rut al azar con digito verificador.
+El rut generado es de la forma 000000000-0
 
 ```c#
 // agregar using EFTEC;
