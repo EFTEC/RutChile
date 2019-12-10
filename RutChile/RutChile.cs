@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+
 namespace EFTEC
 {
     /// <summary>
@@ -19,7 +21,7 @@ namespace EFTEC
             bool validacion = false;
             try
             {
-                rut = rut.ToUpper().Trim().Replace("-","").Replace(".","");
+                rut = LimpiaRut(rut).Replace("-","");
                 int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
                 char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
                 int m = 0, s = 1;
@@ -43,7 +45,7 @@ namespace EFTEC
         /// En caso de error, devuelve un "?"
         /// </summary>
         /// <param name="rut">El rut no debe contener el digito verificador</param>
-        /// <returns></returns>
+        /// <returns>Devuelve el digito verificador, ejemplo: 1,2,3,K</returns>
         public static string ObtenerDV(string rut)
         {
             string dv;
@@ -70,7 +72,7 @@ namespace EFTEC
         /// </summary>
         /// <param name="desde">Numero inicial</param>
         /// <param name="hasta">Numero final</param>
-        /// <returns></returns>
+        /// <returns>El resultado es de la forma 123456-D</returns>
         public static string GeneraRut(int desde=1,int hasta=99999999) 
         {
             string rut;
@@ -78,6 +80,62 @@ namespace EFTEC
             string num=ran.Next(desde,hasta).ToString();
             rut=num+"-"+ObtenerDV(num);
             return rut;
+        }
+        
+        /// <summary>
+        /// Convierte un rut en un rut con/sin largo determinado (ceros a la izquierda)
+        /// , con/sin separador de miles y con/sin digito verificador
+        /// </summary>
+        /// <param name="rut">Rut a procesar. Puede tener espacio, puntos pero debe tener el digito verificador</param>
+        /// <param name="largo">Si es cero entonces no se especifica un largo. Si no es cero, se llena de "0" a la izquierda</param>
+        /// <param name="separador">Si incluye o no el separador de miles</param>
+        /// <param name="dv">Si incluye o no el digito verificador</param>
+        /// <returns></returns>
+        public static string ConvierteTipoRut(string rut,int largo=0,bool separador=true,bool dv=true) 
+        {
+     
+            rut=LimpiaRut(rut); // limpiamos el rut
+            var partes=rut.Split(new[] {'-'},StringSplitOptions.None);
+            if(partes.Length!=2)
+            {
+                return null; // rut invalido no tiene separador.
+            }
+
+            string numS = partes[0];
+            int num;
+            if (!int.TryParse(numS, out num))
+            {
+                return null; // rut invalido, no contiene numeros.
+            }
+            if (separador)
+            {
+                 num=1000000000+num;
+                numS=num.ToString("N0",CultureInfo.InvariantCulture).Replace(',','.'); // por defecto invariant usa comas
+            }
+            if(largo>0)
+            {
+                if(largo>numS.Length)
+                {
+                    return null; // rut invalido, resultado mas lrgo que largo indicado
+                }
+                numS=numS.Substring(numS.Length-largo);
+            }
+            if(dv)
+            {
+                numS=numS+"-"+partes[1];
+            }
+
+            return numS;
+        }
+        /// <summary>
+        /// Limpia un rut de puntos, espacios al comienzo y final y lo devuelve en mayuscula 
+        /// y con el digito verificador
+        /// </summary>
+        /// <param name="rut">Rut a convertir. Ejemplo 123.456-k -> 123456-K</param>
+        /// <returns></returns>
+        public static string LimpiaRut(string rut)
+        {            
+            return rut.ToUpper().Trim().Replace(".","");
         }
     }
 }

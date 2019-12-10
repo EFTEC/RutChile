@@ -22,9 +22,15 @@ namespace RutChileTest
             rut = "1"; // Primer rut
             Assert.AreEqual("9", RutChile.ObtenerDV(rut));
             rut = "5.126.663"; // Sebastian Piñera
-            Assert.AreEqual("3", EFTEC.RutChile.ObtenerDV(rut));
+            Assert.AreEqual("3", RutChile.ObtenerDV(rut));
 
-            Assert.AreEqual(true, EFTEC.RutChile.ValidarRut(EFTEC.RutChile.GeneraRut()));
+            Assert.AreEqual(true, RutChile.ValidarRut(RutChile.GeneraRut()));
+            rut= "5.126.663-3";
+            Assert.AreEqual("5126663-3",RutChile.LimpiaRut(rut));
+
+            Assert.AreEqual("005.126.663-3",RutChile.ConvierteTipoRut(rut,11,true,true));
+            rut= "0000001-9";
+            Assert.AreEqual("000.000.001-9",RutChile.ConvierteTipoRut(rut,11,true,true));
         }
     }
 }
