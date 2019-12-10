@@ -10,7 +10,7 @@
     <license type="file">LICENSE.txt</license>
     <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
     <projectUrl>https://www.eftec.cl/</projectUrl>
-    <iconUrl>https://avatars3.githubusercontent.com/u/19829219?s=200&amp;v=4</iconUrl>
+    <icon>icon.png</icon>
     <description>Libreria para validar y generar RUT de Chile.
 El RUT (tambien conocido como RUN) es el numero identificador (National Id) de cada ciudadano chileno y consiste en lo siguiente. 
 Una serie de numeros y un digito verificador, el cual puede ser un numero del 0 al 9 o la letra K
