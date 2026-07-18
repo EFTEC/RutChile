@@ -13,11 +13,15 @@ namespace EFTEC
         /// Valida un rut y devuelve true si el rut es valido. En otro caso, devuelve False.
         /// El rut puede estar en mayuscula, minuscula y contener puntos.
         /// </summary>
-        /// <param name="rut">Ejemplo: 123456789-0</param>
-        /// <returns></returns>
-        public static bool ValidarRut(string rut)
+        /// <param name="rut">Ejemplo: ValidaRut("123456-7") o ValidaRut("1234567", false)</param>
+        /// <param name="contieneDV">Indica si el rut contiene digito verificador. Si no contiene, lo agregra</param>
+        /// <returns>Devuelve true si el rut es valido, false en caso contrario</returns>
+        public static bool ValidarRut(string rut,bool contieneDV=true)
         {
-
+            if(contieneDV==false)
+            {
+                rut = rut.Trim() + "-" + ObtenerDV(rut);
+            }
             bool validacion = false;
             try
             {
@@ -51,21 +55,44 @@ namespace EFTEC
             string dv;
             try
             {
+
                 rut = rut.ToUpper().Trim().Replace("-", "").Replace(".", "");
                 int rutAux = int.Parse(rut.Substring(0, rut.Length));
-                
+
                 int m = 0, s = 1;
                 for (; rutAux != 0; rutAux /= 10)
                 {
                     s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
                 }
-                dv=((char)(s != 0 ? s + 47 : 75)).ToString();
-            }
-            catch (Exception)
-            {
+                dv = ((char)(s != 0 ? s + 47 : 75)).ToString();
+            } catch {
                 return "?";
             }
+          
             return dv;
+        }
+        /// <summary>
+        /// Separa un rut en dos partes, la primera parte es el numero y la segunda parte es el digito verificador. 
+        /// Si no hay digito verificador, la segunda parte es vacia. Ejemplo: 12345678-9 -> ["12345678","9"]
+        /// Si el rut es invalido, devuelve ["",""]
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <returns></returns>
+        public static string[] SepararRut(string rut)
+        {
+            var limpiar= LimpiaRut(rut);
+            var valido=ValidarRut(limpiar);
+            if(valido == false)
+            {
+                return new string[] {"",""};
+            }
+            if (rut.Contains("-") == false)
+            {
+                limpiar = limpiar + "-";
+            }
+            var resultado = limpiar.Split(new[] { '-' }, StringSplitOptions.None);
+
+            return resultado;
         }
         /// <summary>
         /// Genera un rut al azar con digito verificador.

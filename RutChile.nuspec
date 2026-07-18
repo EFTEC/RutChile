@@ -8,7 +8,7 @@
     <owners>Jorge Castro Castillo</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="file">LICENSE.txt</license>
-    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <licenseUrl>https://github.com/EFTEC/RutChile?tab=MIT-1-ov-file</licenseUrl>
     <projectUrl>https://www.eftec.cl/</projectUrl>
     <icon>icon.png</icon>
     <description>Libreria para validar y generar RUT de Chile.
